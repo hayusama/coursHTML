@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>6 - Les formulaires</title>
+
+		<!-- encodage du texte -->
+		<meta charset="UTF-8" />
+	</head>
+
+	<body>
+		<h1>Exercice table/form</h1>
+
+		<p>
+			Créer un nouveau fichier HTML avec :
+			Un formulaire d'inscription avec photo.
+			Vous devez demander à l'utilisateur :
+			- sa civilité (M. ou Mme)
+			- son nom (obligatoire)
+			- son adresse email (obligatoire)
+			- son age (pas obligatoire - entre 25 et 50)
+			- une description avec minimum 50 caractères
+			- un champ pour uploader une photo au format .jpg
+
+			Créer le formulaire, les champs et les validations demandées
+		</p>
+
+		<form method="get" action="inscription.php">
+			<p>
+				<input type="radio" name="civility" id="civ_m" value="1"/> <label for="civ_m">M.</label>
+				<input type="radio" name="civility" id="civ_mme" value="2"/> <label for="civ_mme">Mme</label>
+			</p>
+
+			<p>
+				<input type="text" required placeholder="Votre nom" name="name"/>
+			</p>
+
+			<p>
+				<input type="email" required placeholder="Votre email" name="email"/>
+			</p>
+
+			<p>
+				<label for="age">Votre âge</label>
+				<input id="age" type="number" min="25" max="50" name="age"/>
+			</p>
+
+			<p>
+				<textarea minlength="50" placeholder="Décrivez-vous" name="description"></textarea>
+			</p>
+
+			<p>
+				<!-- dans l'attribut accept, on peut restreindre par extension
+				ou par type mime -->
+				<input type="file" accept="image/jpeg" name="picture"/>
+			</p>
+
+			<p>
+				<input type="submit" value="M'inscrire !" name="btn_submit"/>
+			</p>
+
+		</form>
+	</body>
+</html>

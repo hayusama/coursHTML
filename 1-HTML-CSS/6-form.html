@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>6 - Les formulaires</title>
+	</head>
+
+	<body>
+		<h1>Les formulaires</h1>
+
+		<form>
+			<label for="input_name">Votre nom :</label>
+			<input id="input_name" type="text" required pattern=".{3,}" placeholder="Ton nom stp ?"/>
+			<br>
+
+			<input type="password" placeholder="Mot de passe"/>
+			<br>
+
+			<input type="number" required min="18" max="130"/>
+			<br>
+
+			<input type="date" />
+			<br>
+			<br>
+
+			<input type="checkbox" id="radio_apple" />
+			<label for="radio_apple">Pomme</label><br>
+
+			<input type="checkbox" id="radio_banana"/>
+			<label for="radio_banana">Banane</label><br>
+			<br>
+
+			<!-- on lie des boutons radios entre eux grâce à l'attribut name -->
+			<input type="radio" name="situation"/>Propriétaire<br>
+			<input type="radio" name="situation"/>Locataire<br>
+			<br>
+
+			<!-- liste déroulante à choix unique -->
+			<select required>
+				<option></option>
+				<option>France</option>
+				<option>Belgique</option>
+				<option>Italie</option>
+			</select>
+			<br>
+
+			<!-- liste déroulante à choix multiple -->
+			<select multiple>
+				<option></option>
+				<option>France</option>
+				<option>Belgique</option>
+				<option>Italie</option>
+			</select>
+			<br>
+
+			<textarea></textarea>
+			<br>
+
+			<input type="file" accept=".pdf"/>
+			<br>
+
+			<!-- bouton de soumission du formulaire -->
+			<input type="submit" value="Valider"/>
+		</form>
+	</body>
+</html>
