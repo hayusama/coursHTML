@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>6 - Les formulaires</title>
+	</head>
+
+	<body>
+		<h1>Les formulaires</h1>
+
+		<form method="get" action="">
+			<fieldset>
+				<legend>Vos infos</legend>
+					<p>
+						<label for="nom">Votre nom :</label>
+						<input id="nom" type="text" required pattern=".{3,}" placeholder="Ton nom stp ?" name="nom"/>
+					</p>
+
+					<p>
+						<label for="motdepasse">Votre nom :</label>
+						<input type="password" placeholder="Mot de passe" name="pass" id="motdepasse"/>
+					</p>
+
+					<p>
+						<label for="age">Votre age :</label>
+						<input type="number" required min="18" max="130" name="age" id="age"/>
+					</p>
+
+					<p>
+						<label for="naissance">Votre date de naissance :</label>
+						<input type="date" name="date" id="naissance"/>
+					</p>
+
+					<!--ici le name contient [] c'est un tableau car il peut y avoir plusieurs choix-->
+					<input type="checkbox" id="radio_apple" name="choix[]" value="Pomme"/>
+					<label for="radio_apple">Pomme</label><br>
+
+					<input type="checkbox" id="radio_banana" name="choix[]" value="Banane"/>
+					<label for="radio_banana">Banane</label><br>
+					<br>
+
+					<!-- on lie des boutons radios entre eux grâce à l'attribut name -->
+					<input type="radio" name="situation" value="Propriétaire"/>Propriétaire<br>
+					<input type="radio" name="situation" value="Locataire"/>Locataire<br>
+					<br>
+
+					<!-- liste déroulante à choix unique -->
+					<div>
+						<label for="pays1">Votre lieu de naissance :</label>
+						<select required name="pays1" id="pays1">
+							<option selected></option>
+							<option value="France">France</option>
+							<option value="Belgique">Belgique</option>
+							<option value="Italie">Italie</option>
+						</select>
+						<br><br>
+					</div>
+
+					<!-- liste déroulante à choix multiple -->
+					<div>
+						<label for="pays2">Vos lieux de vacances :</label>
+						<select multiple name="pays2[]">
+							<option></option>
+							<option value="France">France</option>
+							<option value="Belgique">Belgique</option>
+							<option value="Italie">Italie</option>
+						</select>
+						<br><br>
+					</div>
+
+					<textarea name="cpt">Votre commentaire ici</textarea>
+					<br><br>
+
+					<input type="file" accept="image/*" name="fichier"/>
+					<br><br>
+
+					<!-- bouton de soumission du formulaire -->
+					<input type='reset'>
+					<input type="submit" value="Valider"/>
+			</fieldset>
+		</form>
+	</body>
+</html>

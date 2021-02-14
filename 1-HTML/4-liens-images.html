@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>4 - Les liens</title>
+	</head>
+
+	<body>
+		<!--
+		url absolue : url en entier avec
+		"https:///" + domaine + extension + url_page
+		Elle est nécessaire quand on veut diriger l'internaute
+		vers un autre domaine
+		-->
+		<a href="https://google.fr" title="Google">Lien vers google</a>
+		
+		<!-- url relative : à partir du dossier courant, on peut 
+		simplement url le chemin vers le fichier à appeler -->
+		<a href="4-liens-bis.html">Page 2 Liens</a>
+		<a href="image/validation.gif">Lien vers image</a>
+		
+		<!-- pour que la page s'ouvre dans un nouvel onglet -->
+		<a href="4-liens-bis.html" target="_blank"> Page 2 liens dans nouvel onglet</a>
+		<br>
+		relatif
+		<img src="./image/validation.gif" alt="validation" width="50"><br>
+		relatif
+		<img src="image/validation.gif" alt="validation" width="50"><br>
+		absolu
+		<img src="/image/validation.gif" alt="validation" width="50"><br><!--Ne fonctionnera pas ici car le fichier n'est pas à la racine-->
+		absolu
+		<img src="/1-HTML-CSS/image/validation.gif" alt="validation" width="50"><br>
+		<br>
+
+		<a href="https://google.fr" title="Google"><img src="image/validation.gif" alt="validation" width="50"> Google</a>
+		<br>
+		<!--Element precis de la page, ça aussi avec une page externe-->
+		Lien vers ancre :<br>
+		<a href='#monancre' title="info">Mon ancre</a>
+
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<div id="monancre">Je suis un contenu supplémentaire</div>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</body>
+</html>
