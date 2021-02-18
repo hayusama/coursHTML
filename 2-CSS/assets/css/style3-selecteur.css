@@ -1,0 +1,31 @@
+*{
+    /* SELECTEUR UNIVERSEL */
+}
+
+div p{
+    /* SELECTEUR CONTENU INTERNE */
+}
+
+div > p{
+    /* SELECTEUR CONTENU INTERNE PREMIER ENFANT */
+}
+
+h1 + p {
+    /* BALISE QUI EN SUIT UNE AUTRE */
+}
+
+input[type="text"]{
+    /* SELECTEUR AVEC ATTRIBUT SPECIFIQUE */
+}
+
+p:first-child{
+    /* PREMIER ENFANT DU PARENT */
+}
+
+#id{
+    /* SELECTEUR ID */
+}
+
+.class{
+    /* SELECTEUR CLASSE */
+}
