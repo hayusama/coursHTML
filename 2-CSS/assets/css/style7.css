@@ -1,0 +1,17 @@
+#conteneur
+{
+    display: flex;
+    /*flex-direction:column;*/ /*Affichage colonne*/ /*flex-direction:row; affichage ligne*/
+     flex-wrap: wrap;  /*RETOUR LIGNE*/
+     justify-content: center; /*alignement principal*/
+     align-items: flex-end; /*alignement secondaire*/
+     height:500px; /*il faut utiliser une largeur au conteneur*/
+     border:1px solid black;
+}
+.element{
+  width:150px;
+  height:150px;
+}
+.rouge{background:red}
+.vert{background:green}
+.bleu{background:blue}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div{height:100px;}
+
+.div1 {
+  /*RELATIVE permet l'utilisation de top, left, bottom, et right son comportement est standard*/
+  position:relative;
+  width:100%;
+  background:red;
+}
+
+.div2 {
+  /*il nous permet de placer un élément n'importe où sur la page (en haut à gauche, en bas à droite, tout au centre, etc.) ;*/
+  /* A noter : Z-index qui permet d'utiliser le principe de superposition 
+  pour indiquer quel élément doit apparaître au-dessus des autres.*/
+  position:absolute;
+  width:200px;
+  z-index:4;
+  background:black;
+  color:white;
+  top:0;
+}
+
+.div3 {
+  /*identique au positionnement absolu mais, cette fois, l'élément reste toujours visible*/
+  background: green;
+  position: fixed;
+  width:100px;
+  right:0;
+  bottom:0;
+}
+</style>
+</head>
+<body>
+
+<p>div position</p>
+
+<div class="div1">relative</div>
+<div class="div2">absolu</div>
+<div class="div3">fixed</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

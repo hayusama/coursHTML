@@ -1,0 +1,16 @@
+body{
+    background-color:#FF0000;
+    color:white;
+    text-align:center;
+}
+h1{
+    color:yellow;
+}
+.hero-image {
+    background-image: url("XXXXX.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
