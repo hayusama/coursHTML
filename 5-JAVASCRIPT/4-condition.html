@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
+    <br>
     <script>
+        
         /*
         console.log("PREMIER SI"); //AFFICHER EN CONSOLE UN TEXTE
         let chaine = 'Choisir une valeur numérique';  //AFFECTER A CHAINE LA VALEUR APRES LE =
@@ -23,10 +26,81 @@
         }
         */
         //ALTERNATIVE
+        /*
         if(confirm('Acceptez la demande?')){
             alert('ok');
         }else {
             alert('PAS OK');
+        }
+        */
+
+        //TESTER L'EXISTANCE D'UNE VARIABLE
+        /*
+        let age,texte;
+        age = 30;
+        texte = "bonjour";
+        if(!(age < 20) && texte == "bonjour") { 
+            alert("condition respectée");
+        } else {
+            alert("condition non respectée");
+        }
+
+        //TERNAIRE
+        // ! = inverse du resultat , && = ET les deux parties doivent être "vraies"
+        (!(age < 20) && texte == "bonjour")?alert("condition respectée"):alert("condition non respectée");
+        */
+
+        //SWITCH = SELON
+        
+        var info2 = parseInt(prompt("Choisir une valeur:"));
+        switch(info2) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9 :
+                alert("C'est nul");
+                break;
+            case 10 :
+                alert("Vous avez juste la moyenne");
+                break;
+            case 15 :
+                alert("Vous avez une bonne note");
+                break;
+            case 20 :
+                alert("Vous avez la meilleure note");
+                break;
+            default :
+                alert("Valeur non reconnue");
+        }
+    
+
+
+        //SWITCH = SELON
+        var info3 = parseInt(prompt("Choisir une valeur:"));
+        switch(true) {
+            case info3>=0 && info3<5 :
+                alert("C'est nul");
+                break;
+            case info3>=5 && info3<10:
+                alert('pas terrible');
+                break;
+            case info3>=10 && info3<15 :
+                alert("Vous avez juste la moyenne");
+                break;
+            case info3>=15 && info3<20 :
+                alert("Vous avez une bonne note");
+                break;
+            case info3==20 :
+                alert("Vous avez la meilleure note");
+                break;
+            default :
+                alert("Valeur non reconnue");
         }
     </script>
 </body>

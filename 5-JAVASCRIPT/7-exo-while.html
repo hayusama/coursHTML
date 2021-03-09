@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("methode 1");
+        let texte;
+        let final = "";
+
+        /*
+        do{
+            texte = prompt('Insérez une chaine');
+            if(texte!="") {
+                final = final + texte + ",";
+            }  
+        }while(texte!="");
+
+        alert(final);
+        */
+
+        /*
+        console.log("methode2");
+        texte = prompt('Insérez une chaine');
+        final += texte + " ";
+        while(texte != "") {
+            texte = prompt('Insérez une chaine');
+            final += texte + " ";
+        }
+        console.log(final);
+        */
+
+
+        console.log("Methode 3 {plus complexe}");
+        while(true){
+               texte = prompt("Insérer une donnée");
+               if(texte !="") {
+                   final += texte + " "; //final = final + texte + " ";
+               } else {
+                    break;
+               }
+        }
+        console.log(final);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script src="Assets/js/exemple_fonction.js"></script>
+<script>
+    let valeur_retour = 0;
+    var message;
+    let retourfct;
+    let somme;
+    message = "Ici la variable globale!";
+    premiere_fonction();
+    console.log("Valeur retour (avant la fonction) = "+ valeur_retour);
+    //valeur_retour = calcul();
+    console.log("Valeur retour (après la fonction) = "+ valeur_retour);
+    infomessage();
+    console.log("En dehors de ma fonction message  = " + message
+    );
+    console.log("______fonction test______");
+    test(1,2,3);
+    console.log("_____fct information_____");
+    information("bonjour",2,true,);
+    console.log("_______fct verif_____");
+    verif_type(1);
+    verif_type("test");
+    verif_type();
+    verif_type(true);
+    verif_type(infomessage());
+    verif_type(infomessage);
+
+    if(retour()) {  
+        console.log("VRAI");
+    } else {
+        console.log("FAUX");
+    }
+    console.log("_______fct somme notes_____");
+    somme = somme_notes();
+    console.log("La somme des notes est : " + somme);
+</script>
+</body>
+</html>

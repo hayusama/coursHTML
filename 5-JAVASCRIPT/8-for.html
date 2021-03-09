@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("DEBUT DU FOR");
+        for(let i=0; i<= 10; i++) {
+            console.log("Valeur de i "+ i);
+        }
+
+
+        console.log("FIN DU FOR");
+
+        for(var total = '', texte;true;){
+            texte = prompt("entrez une donnée");
+            if(texte!=""){  // if(texte) la variable est créé et en plus il y a un contenu à l'interieur (!="" ou !=false ou !=0)
+                total = total + texte + " ";
+            } else {
+                break;
+            }
+        }
+        console.log(total);
+    </script>
+</body>
+</html>

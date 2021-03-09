@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("____FONCTION____");
+        function simple(a,b,c){
+            console.log(a+b+c);
+        }
+        simple(10,10,10);
+
+        console.log("____FONCTION ANONYME (fonction jetable / temporaire)____");
+        let test = function(a,b,c){
+            console.log(a+b+c);
+        }
+        test(10,10,10);
+
+        test = function(a,b){
+            console.log(a + " et " + b);
+        }
+        test(10,15);
+
+
+        console.log("____FONCTION IIFE (IMMEDIATEMENT LANCE / INTANT \"T\" USAGE UNIQUE)____");
+        var chaine = "externe";
+        (function(a,b,c){
+            var chaine = "interne";
+            console.log("IIFE : "+ chaine + (a+b+c));
+        })(20,60,20);
+
+
+        
+        console.log("En dehors" + chaine);
+
+        
+
+
+
+    </script>
+</body>
+</html>
