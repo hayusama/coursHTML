@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //"use strict";
+       var x= "externe";
+
+
+        function test(interne){
+            if(interne) {
+              var x = "interne";
+              return x;
+            }
+
+            return x;
+        }
+
+        console.log(test(false),test(true));
+
+
+        //Comportement de navigateur quand il traite votre code
+        //Il hisse au plus haut la déclaration de la variable (simplement la déclaration)
+        var x;
+        x="externe";
+
+        function test2(interne){
+            var x;
+            if(interne){
+                x="interne";
+                return x;
+            }
+            return x;
+        }
+
+        console.log(test2(false),test2(true));
+
+
+        //VERSION ES6
+        //CONST
+        const TESTVAR = "bonjour";
+        console.log(TESTVAR);
+        //TESTVAR = "Au revoir"; //ATTENTION ON NE PEUT PAS REDEFINIR UNE CONSTANTE
+
+        //LET
+        
+        let z = "externe";
+        console.log("Avant de lancer la fonction : ", z);
+        function test3() {
+           let z = "modifie";  //NE JAMAIS OUBLIER LE MOT CLE LORS DE LA CREATION DE VOS VARIABLES
+           console.log(z);
+        }
+        test3();
+        console.log("Après lancer la fonction : ", z);
+
+
+
+    </script>
+</body>
+</html>
