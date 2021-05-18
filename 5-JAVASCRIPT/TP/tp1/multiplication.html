@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+   /** ATTENTION BORDURE CSS differente de BORDURE ATTRIBUT de la balise**/
+   table{border:3px dashed black;}
+</style>
+
+
+    <script>
+/***
+function $(selecteur){
+   return document.querySelector(selecteur);
+}
+***/
+
+
+
+ var a;
+ //A modulo 1 permet de tester si entier
+ do{
+    a=prompt("Saisissez un nombre entier");      
+ }while(isNaN(a) || a%1!==0);
+ 
+ //CREATION DE L'ELEMENT TABLEAU
+var x = document.createElement("TABLE");
+x.setAttribute("id", "myTable");
+x.setAttribute("border","1");
+//document.querySelector("body") equivalent document.body
+document.body.appendChild(x);
+//Je boucle 10 fois pour réaliser mes 10 lignes
+ for(var i=1;i<=10;i++){
+    //creation de ma ligne
+    var y = document.createElement("TR");
+    document.querySelector("#myTable").appendChild(y);
+   
+
+   //CREATION CELLULE 1
+    var z1 = document.createElement("TD");
+    var t1 = document.createTextNode(a+" x "+i);
+    z1.appendChild(t1);
+    document.querySelectorAll("table tr")[i-1].appendChild(z1);
+    
+
+    //CREATION CELLULE 2
+    var z2 = document.createElement("TD");
+    var t2 = document.createTextNode(a*i);
+    z2.appendChild(t2);
+    document.querySelectorAll("table tr")[i-1].appendChild(z2);
+ 
+ }
+ 
+</script>
+
+</body>
+</html>

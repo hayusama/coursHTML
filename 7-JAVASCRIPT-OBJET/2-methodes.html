@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function Voiture(marque,annee,km,boite){
+           //ATTRIBUT
+           this.marque = marque;
+           this.annee = annee;
+           this.km = km;
+           this.boite = boite;
+           this.infos = [];
+           this.tabMessageDate = [];
+           //METHODE
+           this.addInfos = function(info){
+               this.infos.push(info);
+           }
+       } 
+       //AJOUT DE METHODE VIA PROTOTYPE
+       Voiture.prototype.texte = function(){
+           console.log("j'ai ajouté une fonction en dehors du constructeur");
+       }
+       Voiture.prototype.addInfosAvecDate = function(TabInfos){
+           this.tabMessageDate.push(TabInfos);
+       }
+
+
+
+
+
+
+
+       //INSTANCIE UN OBJET DE TYPE VOITURE
+       var voiture1 = new Voiture("Fiat",2010,50000,"AUTO");
+       var voiture2 = new Voiture("Peugeot",2020,50000,"MANUELLE");
+      //APPEL METHODE VOITURE1
+       voiture1.addInfos("Controle technique");
+       voiture1.addInfos("La voiture passe");
+       voiture1.addInfos("Accident");
+
+        //APPEL METHODE VOITURE2
+       voiture2.addInfos("INFORMATIONS DIFFERENTES");
+
+       //AFFICHAGE DES VALEURS CONTENU DANS MON ATTRIBUT INFOS (TABLEAU DONC FOREACH)
+       voiture1.infos.forEach(function(elm,index){
+            console.log("VOITURE 1 - INFO "+index+ " : "+elm);
+       });
+        //AFFICHAGE DES VALEURS CONTENU DANS MON ATTRIBUT INFOS (TABLEAU DONC FOREACH)
+       voiture2.infos.forEach(function(elm,index){
+        console.log("VOITURE 2 - INFO "+index+ " : "+elm);
+        });
+
+        //AFFICHAGE DE MA METHODE TEXTE
+        voiture1.texte();
+        voiture2.texte();
+
+        //DEFINI UN OBJET DATE A LA DATE ACTUELLE
+        let aujourdhui = new Date();
+        // "Options" est un objet litteral qui permet d'apporter une surcharge à notre objet date pour l'avoir en version longue
+        const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: 'numeric',
+                };
+
+        //LE CODE de-DE représente le code de langue du pays
+        console.log(aujourdhui.toLocaleDateString('de-DE', options));
+        console.log(aujourdhui.toLocaleDateString('fr-FR', options));
+
+        const DATE_DU_JOUR = aujourdhui.toLocaleDateString('fr-FR', options);
+
+        //AJOUT D'INFORMATION AVEC DATE
+        voiture1.addInfosAvecDate(["J'ai cassé ma voiture",DATE_DU_JOUR]);
+        voiture1.addInfosAvecDate(["J'ai acheté une voiture'",DATE_DU_JOUR]);
+
+
+        for(let i=0;i<voiture1.tabMessageDate.length;i++){
+            console.log("Informations : "+ voiture1.tabMessageDate[i][0] + " Date : "+ voiture1.tabMessageDate[i][1]);
+        }
+
+        for(let i=0;i<voiture2.tabMessageDate.length;i++){
+            console.log("Informations : "+ voiture2.tabMessageDate[i][0] + " Date : "+ voiture2.tabMessageDate[i][1]);
+        }
+
+
+        //tabMessageDate : Est un tableau de tableau
+        //tabMessageDate[0] : Renvoi la première ligne de votre tableau (elle contient un tableau)
+        //tabMessageDate[0][0] ou tabMessageDate[0][1] : Renvoi le premier ou deuxieme element de la premiere ligne de votre tableau
+        console.log(MaVoiture.tabMessageDate[0][1]);
+
+    </script>
+</body>
+</html>

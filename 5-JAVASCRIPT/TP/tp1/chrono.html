@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="chrono">
+        <span >0 heure(s)</span> :
+        <span >0 minute(s)</span> :
+        <span >0 seconde(s)</span> :
+        <span >0 ms</span>
+  
+    </div>
+  
+    <script>
+  var ms=0,s=0,mn=0,h=0;
+  var sp = document.querySelectorAll("div.chrono>span")
+   /*La fonction "start" démarre un appel répétitive de la fonction update_chrono par une cadence de 100 milliseconde en utilisant setInterval et désactive le bouton "start" */
+  /*La fonction update_chrono incrémente le nombre de millisecondes par 1 <==> 1*cadence = 100 */
+  function update_chrono(){
+    ms+=1;
+    /*si ms=10 <==> ms*cadence = 1000ms <==> 1s alors on incrémente le nombre de secondes*/
+       if(ms==10){
+        ms=1;
+        s+=1;
+       }
+       /*on teste si s=60 pour incrémenter le nombre de minute*/
+       if(s==60){
+        s=0;
+        mn+=1;
+       }
+       if(mn==60){
+        mn=0;
+        h+=1;
+       }
+       /*afficher les nouvelle valeurs*/
+       sp[0].innerHTML=h+" heure(s)";
+       sp[1].innerHTML=mn+" minute(s)";
+       sp[2].innerHTML=s+" seconde(s)";
+       sp[3].innerHTML=ms*100 +" ms";
+
+  }
+  
+  setInterval(update_chrono,100);
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre 1</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">
+            Ceci est ma page de <a href="#" title="contact">contact</a> 
+            <a id="info" href="#" title="INFO">info</a>
+        </p>
+        <p class="paragraphe3 paragraphe">J'aime <span>INFO</span> les cours</p>
+        <ul id="liste">dfsdfsdf
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+        <ul id="liste2"><li>Netflix</li><li>L'argent</li><li>Les voitures</li><li>La programmation</li></ul>
+    </div>
+
+    <script>
+        //RECUPERE UN TABLEAU D'ELEMENT(S) HTML et [0] le premier element de mon tableau
+        let elm = document.getElementsByClassName("paragraphe2")[0];
+        console.log(elm);
+        //RECUPERER LA BALISE DE PARENT DE MON ELEMENT
+        console.log(elm.parentNode);
+        //J'AFFICHE EN CONSOLE SON CONTENU HTML
+        console.log(elm.parentNode.innerHTML);
+        //RECUPERER ELEMENT BODY A PARTIR DE PARAGRAPHE2
+        console.log(elm.parentNode.parentNode.innerHTML);
+
+        let elm2 = document.getElementById("liste");
+        console.log(elm2);
+        //FIRST CHILD : PREMIER ELEMENT // LAST CHILD DERNIER ELEMENT (undefined car noeud de type texte)
+        console.log(elm2.firstChild.innerHTML,elm2.lastChild.innerHTML);
+        //PREMIER ELEMENT /DERNIER ELEMENT (corrige le problème des textes vides (noeud texte))
+        console.log(elm2.firstElementChild.innerHTML,elm2.lastElementChild.innerHTML);
+
+
+        let elm3 = document.getElementById("liste2");
+        console.log(elm3);
+        //FIRST CHILD : PREMIER ELEMENT // LAST CHILD DERNIER ELEMENT (ici il n'y a pas de textes vides)
+        console.log(elm3.firstChild.innerHTML,elm3.lastChild.innerHTML);
+    </script>
+</body>
+</html>

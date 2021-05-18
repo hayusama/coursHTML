@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //CREATION DE L'ELEMENT
+    var newDiv1 = document.createElement('div');
+    //CREATION DU NOEUD TEXTE
+    var texte = document.createTextNode('bonjour');
+    var newDiv2 = newDiv1; // On tente de copier le <div>
+    console.log(newDiv2, newDiv1)
+    //ON INSERE L'ELEMENT DANS BODY AVEC LE TEXTE
+    document.querySelector('body').appendChild(newDiv1);
+    newDiv1.appendChild(texte);
+
+
+    //ICI ON CLONE - FACON PROPRE ET FONCTIONNELLE DE DUPLIQUER UN BLOC COMPLET
+    //TRUE AVEC ENFANT // FALSE SANS ENFANT
+    var autreDiv = newDiv1.cloneNode(true);
+    //ON INSERE
+    document.querySelector('body').appendChild(autreDiv);
+
+
+    //TEST
+    if(newDiv1 === newDiv2) console.log('same');
+    if(newDiv1 === autreDiv) console.log('ok');
+
+    </script>
+</body>
+</html>

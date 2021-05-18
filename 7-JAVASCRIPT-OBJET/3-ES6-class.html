@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        var Animal = (function(){
+            function Constructeur(name){
+                this.name = name;
+            }
+            Constructeur.prototype.parler = function(){
+                console.log(this.name + ' fait du bruit!');
+            }
+            return Constructeur;
+        })();
+
+
+
+        let lion = new Animal("Lion");
+        lion.parler();
+
+        /*EXPLICATION DU CONCEPT D'ENCAPSULATION AU DESSUS*/
+            /**
+            * On affecte une fonction anonyme à notre variable etape1
+            * Etape1 vaut une fonction qui retournera un texte
+            */
+         var etape1 = function () {
+            return "retour de texte";
+        };
+        //Je suis obligé de lancer ma fonction manuellement pour atteindre le resultat
+        //console.log(etape1());
+        console.log(etape1());
+
+
+    /**
+        * Dans ma fonction anonyme je crée une classe avec des attributs et des méthodes.
+        * Je retourne la classe Constructeur.
+        * A ce moment etape2 vaut une fonction qui retournera une classe.
+        */
+        let etape2 = function () {
+        function Constructeur(name) {
+                this.name = name;
+                this.parler = function() {
+                console.log(this.name + ' fait un bruit!');
+                };
+            }
+            return Constructeur;
+        };
+
+        console.log(etape2());
+
+        
+    //La fonction etape2 retourne une classe
+    //J'affecte cette classe à ma variable MaClasse
+    var MaClasse = etape2();
+    //J'instancie ma classe sur ma variable MonObjet en fournissant un argument "singe" demandé dans le Constructeur
+    var MonObjet = new MaClasse("Singe");
+    //MonObjet étant un objet de type MaClasse , je peux utiliser la méthode "parler" définie dans ma classe.
+    MonObjet.parler();
+
+
+        /**
+        * Je vais utiliser une IIFE (Voir pdf de cours) me permettant de lancer directement ma fonction anonyme
+        */
+        var Etape3 = (function () {
+        function Constructeur(name) {
+                this.name = name;
+                this.parler = function() {
+                console.log(this.name + ' fait un bruit!');
+                };
+            }
+            return Constructeur;
+        })();
+        //En lançant mon IIFE, je n'ai plus besoin de faire l'étape suivante
+        //Par conséquent la variable etape3 est une classe car la fonction immédiatement invoquée retourne la classe Constructeur
+        //var MaClasse = etape2();
+        //Etape3 etant une classe je l'affecte directement sur ma variable MonObjetEtape3 qui devient un objet.
+        var MonObjetEtape3 = new Etape3("cheval");
+        //Je peux utiliser les méthodes de ma classe sur mon objet.
+        MonObjetEtape3.parler();
+
+
+        //EXEMPLE DE CLASS ES6
+        class Animal2{
+            constructor(nom){
+               this.nom = nom;
+               this.tarif = 1000;
+            }
+            parler(){
+                console.log(this.nom + "fait du bruit");
+            }
+        }
+
+        let chien = new Animal2('Chien');
+        let truite = new Animal2('Truite');
+
+        console.log(chien.nom,truite.nom);
+        chien.parler();
+        truite.parler();
+
+
+
+
+        function Voiture(marque,annee,km,boite){
+            //ATTRIBUT
+            this.marque = marque;
+            this.annee = annee;
+            this.km = km;
+            this.boite = boite;
+            this.infos = [];
+            this.tabMessageDate = [];
+            //METHODE
+            this.addInfos = function(info){
+                this.infos.push(info);
+            }
+        } 
+        //AJOUT DE METHODE VIA PROTOTYPE
+        Voiture.prototype.texte = function(){
+            console.log("j'ai ajouté une fonction en dehors du constructeur");
+        }
+        Voiture.prototype.addInfosAvecDate = function(TabInfos){
+            this.tabMessageDate.push(TabInfos);
+        }
+
+
+
+        class Voiture2 {
+            constructor(marque,annee,km,boite){
+                this.marque = marque;
+                this.annee = annee;
+                this.km = km;
+                this.boite = boite;
+                this.infos = [];
+                this.tabMessageDate = [];
+                this.moteur = "Puissant";
+            }
+            addInfos(info){
+                this.infos.push(info);
+            }
+            texte(){
+                console.log("J'ai utilisé ES6");
+            }
+            addInfosAvecDate(){
+                this.tabMessageDate.push(TabInfos);
+            }
+            vitesse(){
+                console.log("Ma voiture va vite");
+            }
+
+        }
+
+        let MonVehicule = new Voiture2("peugeot",2019,30000,"Manuelle");
+        console.log(MonVehicule.marque,MonVehicule.boite);
+        MonVehicule.texte();
+
+        MonVehicule.vitesse();
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    CET EXEMPLE MARCHE UNIQUEMENET EN METTANT FLUXJSON.PHP DANS WAMP QUE LE SERVEUR SOIT DEMARRE
+    ET QUE VOUS CHANGIEZ LE CHEMIN DU FICHIER FLUXJSON VERS SONT CHEMIN DANS WAMP (VIA URL localhost/....)
+<button id="ajaxButton" type="button">Faire une requête</button>
+    <script>
+    
+        (function() {
+
+            document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+            function makeRequest() {
+                let result = '';
+                fetch('donnee/fluxjon.php?test='+ encodeURIComponent(8))
+                .then(res => res.json()) // on récupère le corps au format json. 
+                .then(text => {
+                    result = `Web page: ${text.computedString}`;
+                    //result = "Web page : " + text.computedString;
+                    alert(result);
+                }).catch(erreur => console.log("erreur " + erreur));
+            }
+        })();
+    </script>
+</body>
+</html>

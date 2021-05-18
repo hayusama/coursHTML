@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    CET EXEMPLE MARCHE UNIQUEMENET EN METTANT FLUXJSON.PHP DANS WAMP QUE LE SERVEUR SOIT DEMARRE
+    ET QUE VOUS CHANGIEZ LE CHEMIN DU FICHIER FLUXJSON VERS SONT CHEMIN DANS WAMP (VIA URL localhost/....)
+<button id="ajaxButton" type="button">Faire une requête</button>
+    <script>
+        (function() {
+        var httpRequest;
+        document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+        function makeRequest() {
+            httpRequest = new XMLHttpRequest();
+
+            if (!httpRequest) {
+            alert('Abandon :( Impossible de créer une instance de XMLHTTP');
+            return false;
+            }
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET', 'donnee/fluxjson.php?test='+ encodeURIComponent(9));
+            httpRequest.send();
+        }
+
+        function alertContents() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                var response = JSON.parse(httpRequest.responseText);
+                console.log("response");
+                alert(response.computedString);
+                
+            } else {
+                alert('Il y a eu un problème avec la requête.');
+            }
+            }
+        }
+        })();
+    </script>
+</body>
+</html>

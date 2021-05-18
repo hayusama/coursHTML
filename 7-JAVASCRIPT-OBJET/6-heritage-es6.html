@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       <script>
+           class Employee {
+                constructor(name, title) {
+                    this.name = name;
+                    this.title = title;
+                    this.code = "XXXXX";
+                }
+                payEmployee() {
+                    console.log("Time to pay " + this.name + " (" + this.title + ")");
+                }
+                info(){
+                    console.log('ceci est une info du parent');
+                }
+            }
+
+            class Consultant extends Employee {
+                constructor(name,info) {
+                    super(name, "Consultant");
+                    this.infoplus = info;
+                    console.log('JE SUIS DANS LE CONSTRUCTEUR');
+                }
+                payEmployee() {
+                    super.payEmployee();
+                    console.log("Time to pay " + this.name + " (" + this.title + this.infoplus + ") -- remember.");
+                }
+                info2(){
+                    console.log('unique au parent');
+                }
+            }
+
+            const e = new Employee("Joe Bloggs", "Engineer");
+            console.log(e);
+            e.payEmployee();
+            e.info();
+            //e.info2();
+
+            let consultant = new Consultant("Anthony","info");
+            console.log(consultant);
+            consultant.payEmployee();
+            consultant.info();
+            consultant.info2();
+
+        
+
+
+
+            //EXERCICE TRANSFORMER HERITAGE ES5 PRECEDENT EN ES6 SOIT PERSONNAGE,MAGICIEN,ASSASSIN
+
+        class Personnage{
+            constructor(hp,mp,lvl,force) {
+                this.hp = hp;
+                this.mp = mp;
+                this.actif = true;
+                this.lvl = lvl;
+                this.force = force
+                console.log("personnage");
+            }
+            bloquer(aux) {
+                this.actif = aux; 
+                console.log("Joueur : "+aux);
+            }
+            combat(perso) {
+                let restevie = perso.hp - this.force;
+                if(restevie>0) {
+                    console.log("Le personnage est encore vie");
+                    perso.hp = restevie;
+                } else {
+                    console.log("Le personne est mort");
+                    perso.hp = 0;
+                    perso.actif = false;
+                }
+                return perso;
+            }
+        }
+
+//UNE CLASSE PEUT AVOIR PLUSIEURS ENFANTS MAIS QU'UN SEUL PARENT
+
+        class Magicien extends Personnage{
+            constructor(hp,mp,lvl,force,sort) {
+                //SUPER ME PERMET DE RECUPERER LE CONSTRUCTEUR DE LA CLASSE PARENT
+                super(hp,mp,lvl,force);
+                this.sort = sort;
+                console.log("magicien");
+            }
+            lancementSort(){
+                console.log('Feuuu!');
+            }
+        } 
+
+        class Assassin extends Personnage{
+            constructor(hp,mp,lvl,force,poison){
+                super(hp,mp,lvl,force);
+                this.poison = poison;
+                console.log("Assassin");
+            }
+            utilisationPoison(){
+                console.log('J\'ai touché');
+                }
+        } 
+
+
+        let mage = new Magicien(60,100,50,10,"Feu");
+        mage.lancementSort();
+        mage.bloquer(true);
+        mage.bloquer(false);
+        console.log(mage.hp,mage.sort);
+
+        let assassin = new Assassin(100,100,50,70,"Bloquant");
+
+        assassin.utilisationPoison();
+        mage = assassin.combat(mage);
+        console.log(mage);
+
+
+
+
+       </script>
+        
+    </body>
+</html>

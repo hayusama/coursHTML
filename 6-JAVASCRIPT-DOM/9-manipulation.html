@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="test">texte avec <a href="#">un lien</a></p>
+    </div>
+
+
+    <div id="dyn"><p>texte</p></div>
+    <script>
+        //SELECTION DE L'ELEMENT A
+        var lien = document.querySelector('a');
+        //CREATION NOEUD TEXTE
+        var nouveauTexte = document.createTextNode('nouveau texte de lien');
+        //REMPLACEMENT DU CONTENU
+        lien.replaceChild(nouveauTexte, lien.firstChild);
+        //lien.parentNode remonte sur p#id une fois dessus on peut supprimer lien
+        let ancien = lien.parentNode.removeChild(lien);
+        console.log(lien,ancien);
+        //SELECTION A PARTIR DE BODY div p#test ET DANS BODY JE GREFFE LE RETOUR RENVOYE PAR ANCIEN
+        document.querySelector('body>div>p#test').appendChild(ancien);
+        //ELEMENT DEPLACE
+        document.querySelector('body>div').appendChild(ancien);
+        //document.body.appendChild(ancien);
+        //RENVOI UN BOOLEEN true si noeud, sinon aucun noeud
+        console.log(ancien.hasChildNodes());
+
+
+        var paragraphe = document.querySelector('p#test');
+        var info = document.createElement('span');
+        var spanText = document.createTextNode('super span!');
+        //AJOUTE au flux mon span avec le texte
+        info.appendChild(spanText);
+        //ATTENTION A JQUERY METHODE POSSEDE DEUX ARGUMENTS - 1.ELEMENT A AJOUTE,  2.VOTRE CONTENU SERA GREFFE AVANT CET ELEMENT
+        paragraphe.insertBefore(info, paragraphe.lastChild);
+
+
+        /*
+        Ca permet de créer une div avec l'id "dyn" de l'insérer avant le premier script de créer un element p et d'y ajouter du texte
+        var div = document.createElement('div');
+        var body = document.querySelector('body');
+        div.setAttribute("id","dyn");
+        body.insertBefore(div, document.querySelector('script'));
+
+        var p = document.createElement('p');
+        var textp = document.createTextNode("texte");
+        p.appendChild(textp);
+        div.appendChild(p);
+        */
+    </script>
+</body>
+</html>

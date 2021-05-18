@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tab1 = ["pomme",14,7.5,false];
+        let tab2 = new Array("pomme",14,7.5,false);
+
+        console.log(tab1,tab2);
+        console.log(tab1[0],tab2[2],tab2[17]); //SI ON TENTE D'ACCEDER A UNE CASE NON DEFINIE, AUCUNE ERREUR CAR LA VARIABLE EXISTE BIEN MAIS N'EST JUSTE PAS REMPLIE
+        //console.log(test);
+
+        tab1[0] = true;
+        console.log(tab1,tab2);
+    </script>
+</body>
+</html>

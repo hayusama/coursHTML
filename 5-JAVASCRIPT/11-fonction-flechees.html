@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Load Babel -->
+    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <!-- Your custom script here -->
+    <script type="text/babel">
+        //SOMME EQUIVALENT RACCOURCI SOMME2
+        let somme = function (a,b) {
+            let result = a+b;
+            return result;
+        };
+
+        //ICI VERSION RACCOURCI ON NE SPECIFIE PAR LES { } et le mot clé Return car seul et unique instruction
+        let somme2 = (a,b) => a+b;
+
+        //SI ON DOIT INTEGRER DES INSTRUCTIONS ON PEUT UTILISER LES { } comme pour la fonction basique
+        let sommebis = (a,b) => { let result = a+b; return result;}
+
+
+        console.log(somme(10,10), somme2(10,10), sommebis(10,10));
+
+        //SOMME 3 EQUIVALENT RACCOURCI SOMME4
+        let somme3 = function(a) {
+            return a+3;
+        }
+        //SI UN SEUL PARAMETRE PAS BESOIN DE PARENTHESE
+        let somme4 = a => a+3;
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>blablabla <a href="https://www.google.fr" title="">google</a> </p>
+    <button id="buttonEvent">C'est un bouton, cliquez dessus!</button>
+
+    <script>
+        //VARIABLE EN DEHORS pour ne pas perdre l'incrementation 
+        let x = 0;
+        //ecoute l'evenement click
+        document.querySelector('#buttonEvent').addEventListener('click',function(e){
+            //ENSEMBLE DES METHODES de l'objet event (e)
+            console.log(e);
+            //TYPE EVENEMENT ici c'est clic
+            console.log(e.type);
+            //CHANGEMENT CONTENU meme chose que this.innerHTML
+            e.target.innerHTML = "Changement" + x++;
+            //POSITION DANS LA FENETRE
+            console.log("x : " + e.clientX + "| y : " + e.clientY);
+        });
+
+        document.querySelector("p a").addEventListener('click',function(e){
+                e.preventDefault();
+                location.href="https://www.amazon.fr";
+        });
+
+
+    </script>
+</body>
+</html>

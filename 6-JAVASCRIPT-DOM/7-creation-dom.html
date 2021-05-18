@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .exemple{
+            color:red;
+            font-size:50px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <p>super</p>
+<script>
+    
+    //CELA PERMET DE CREER UN ELEMENT DE TYPE PARAGRAPHE (BALISE<p></p>)
+    let paragraphe = document.createElement('p');
+    //CELA PERMET DE CREER UN NOEUD TEXTE POUR L'INSTANT RIEN N'EST ASSOCIE
+    let paragrapheTexte = document.createTextNode("Mon premier paragraphe");
+
+    //DEFINIR un attribut id qui s'appelle "entete"
+    paragraphe.setAttribute('id','entete');    //<p id="entete"></p>
+    //AUTRE FACON DE DEFINIR UN ID - SYNTAXE PLUS COURTE - MEME CHOSE
+    //ECRASERA ID EXISTANT
+    paragraphe.id = 'Autre'; //<p id="Autre"></p>
+    //AJOUTE DES CLASSES A MON ELEMENT
+    paragraphe.className = 'exemple'; //<p id="entete" class="XXXX"></p>
+    //MODIFIE LE CSS DE L'ELEMENT COULEUR ET BORDURE
+    paragraphe.style.color = '#FF0000';
+    paragraphe.style.border = '3px solid black';
+    paragraphe.style.color = '#00FF00';
+    //Je greffe mon paragraphe dans le body a ce moment il n'y a pas de textes
+    document.querySelector('body').appendChild(paragraphe);
+    //Je greffe mon texte dans mon paragraphe (sachant que le paragraphe est deja dans le body)
+
+    paragraphe.appendChild(paragrapheTexte);
+
+    //CSS
+    //Cette version re-ecrit le css complet
+    paragraphe.style.cssText = "font-size:18px;font-weight:bold;text-transform:uppercase";
+    //Même chose autre syntaxe
+    paragraphe.setAttribute('style',"font-size:18px;font-weight:bold;text-transform:uppercase");
+    
+</script>
+</body>
+</html>

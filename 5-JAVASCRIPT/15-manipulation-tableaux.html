@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //AJOUTER A LA FIN DU TABLEAU
+        var tableau = [1,2];
+        var valeur = 18;
+        tableau.push(3);
+        tableau.push(4,5,6,7,true,"chaine",['a','b',['n','b','c']],valeur);
+        console.log(tableau);
+        console.log(tableau[9][2][2]);
+
+        //AJOUT DEBUT TABLEAU
+        tableau.unshift('Ajout','au','debut');
+        console.log(tableau);
+        //SUPPRESSION PREMIER ELEMENT
+        tableau.shift();
+
+        //SUPPRESSION DERNIER ELEMENT
+        tableau.pop();
+        tableau.pop();
+
+        console.log(tableau);
+
+    </script>
+</body>
+</html>

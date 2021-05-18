@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //mynamespace est au niveau (le niveau global de page)
+        var myNamespace = {
+            user_id : 4,
+            nom : "dupond",
+            prenom : "Jean",
+            //La fonction test est rangée dans mynamespace
+            test : function(x) {
+                console.log(x);
+            },
+            //je crée un niveau secondaire à mynamespace
+            subNamespace : {
+                //Pour acceder à info : myNamespace.subNamespace.info
+                info:"bonjour",
+                nom : "Durand",
+                init : function(){
+                    //myNamespace.test(myNamespace.subNamespace.info);
+                    myNamespace.test(this.info);
+                }
+            }
+
+        }
+
+       myNamespace.subNamespace.init();
+
+
+        let nom = "jean";
+        nom = "jacques";
+
+        console.log(nom);
+    </script>
+    
+</body>
+</html>

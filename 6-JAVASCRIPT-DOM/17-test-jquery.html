@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>info</div>
+    <div id="j">info2</div>
+    <div>info3</div>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+                //VANILLA JS
+                let divs_v = document.querySelectorAll('div');
+                console.log("Vanilla JS", divs_v);
+                //JQUERY
+                let divs_j = $('div');
+                console.log("JQUERY", divs_j);
+
+                //VANILLA JS
+                document.querySelector('div').style.color = "red";
+                //JQUERY
+                $('div#j').attr('style','color:red');
+
+
+                function $1(elm){
+                    return document.querySelector(elm);
+                }
+
+                $1('div').style.color = "yellow";
+                    });
+
+
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+</body>
+</html>

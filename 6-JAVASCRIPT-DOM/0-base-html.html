@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="container">
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="#" title="contact">contact</a></p>
+        <p class="paragraphe3 paragraphe">J'aime</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>
+    <p>test</p>
+    <form>
+        <input type="text" name="prenom">
+    </form>
+
+
+
+    <script>
+            //PERMET DE RECUPERER LA BALISE UTILISANT L'ID "CONTAINER" AINSI QUE SON CONTENU
+            console.log(document.getElementById("container"));
+           
+            //Element"S" cela renvoi un tableau d'éléments meme si qu'un seul element
+            let tabli = document.getElementsByTagName('li');
+            console.log(tabli);
+            for(let i=0;i< tabli.length;i++){   //i=0; i<4;i+1
+                console.log("Element " + (i) + ":" + tabli[i]);
+                console.log("Element " + (i) + ":" + tabli[i].innerHTML);
+            }
+
+            //RECUPERE VIA LE NAME // UTILE POUR FORMULAIRE
+            console.log(document.getElementsByName("prenom"));
+
+            //RECUPERE SOUS FORME DE TABLEAU UNE LISTE D'ELEMENT EN FONCTION DE LA CLASSE DEFINIE
+            let tab_p = document.getElementsByClassName("paragraphe");
+            for(let i=0;i< tab_p.length;i++){   //i=0; i<3;i+1
+                console.log("Element " + (i) + ":" + tab_p[i].innerHTML);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        "use strict";
+        var xxxx = 10;
+        var y;
+        y = 14;
+        //EQUIVALENT CAR WINDOW  EST IMPLICITE
+        console.log(xxxx)
+        console.log(window.xxxx, window.y);
+       // window.alert('ok');
+    </script>
+</body>
+</html>

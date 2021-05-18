@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            //////EXEMPLE 1/////////
+            const promise1 = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                resolve('foo');
+            }, 2500);
+            });
+            //VALUE (ATTENTION CE N'EST PAS UN MOT CLE RESERVE) - LE VALUE = Le retour de la promise (Resolve)
+            promise1.then(function(value) {
+            console.log(promise1);
+            console.log(value);
+            // expected output: "foo"
+            });
+
+            console.log(promise1);  //PAS EU LE TEMPS DE SE LANCER CAR SETIMEOUT OUI CAR AU MOMENT DE LANCER LE CONSOLE LOG LE TIMEOUT N'EST PAS ECOULE
+            // expected output: [object Promise]
+
+           */ 
+
+
+
+            //////EXEMPLE 2//////////
+            console.log('Start');
+ 
+            var calculate = function(value) {
+                return new Promise((resolve, reject) => {
+                    console.log(`Calculate with ${value}`);
+                    resolve(value * 2);
+                });
+            };
+            
+            calculate(1) //RESOLVE=2
+                .then(calculate) //RESOLVE=4
+                .then(result => result + 1) //FONCTION QUI RENVOIE RESULT PRECEDENT+1 //RESOLVE=5
+                .then(calculate) //RESOLVE=10)            
+                .then(verify); //VERIFY
+            
+            function verify(result) {
+                console.log(`Verify that ${result} = 10`);
+            };
+        
+
+
+
+            console.log('End');
+        /*
+
+                ///////EXEMPLE 3//////////
+                //REJECT EST ATTRAPE PAR LE CATCH 
+                const promiseExemple = new Promise((resolve, reject) => {
+                const randomNumber = Math.random();
+                setTimeout(() => {
+                    if(randomNumber < 0.6) {
+                    resolve('OKKKK' + randomNumber);
+                    } else {
+                    reject('PAS OKKKK' + randomNumber);
+                }
+                }, 2000);
+                });
+
+                //CATCH POUR REJECT. 
+                promiseExemple
+                    .then((valeur)=>console.log(valeur))
+                    .catch(function(valeur){
+                                            console.log(valeur)
+                                            });
+                */
+    </script>
+</body>
+</html>

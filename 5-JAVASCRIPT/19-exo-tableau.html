@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tableau = new Array();
+        let chaine;
+        /*
+        chaine = prompt('inserer une donnée');
+        
+        while(chaine!=""){
+            tableau.push(chaine);
+            chaine = prompt('inserer une donnée');
+        }
+        */
+
+        while(chaine = prompt('inserer une donnée')){
+            tableau.push(chaine);
+            
+        }  
+
+
+
+        if(tableau.length ==0){
+            console.log("tableau vide");
+        }else {
+            console.log(tableau.join(","));
+        }
+
+
+
+    </script>
+</body>
+</html>

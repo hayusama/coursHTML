@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <p class="paragraphe1">Bonjour à tous</p>
+        <p class="paragraphe2">ceci est ma page de <a href="#" title="">Contact</a></p>
+        <p class="paragraphe3">J'aime</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+        <button>Ajout LI</button>
+        <button>Texte clignotant</button>
+    </div>
+
+    <script>
+        console.log(document);
+        //AJOUT EVENT CLICK SUR BUTTON
+        document.querySelector("button").addEventListener("click",function(e){
+            let li = document.createElement("li");
+            let li_texte = document.createTextNode("Mon ajout dynamique");
+            //ASSOCIATION AU DOM
+            li.appendChild(li_texte);
+            document.querySelector("ul").appendChild(li);
+            document.querySelector(".paragraphe1").style.color = "red";
+        });
+
+        //FAIRE CLIGNOTER UN TEXTE
+        document.querySelectorAll("button")[1].addEventListener("click",function(e){
+            let p = document.querySelector("p.paragraphe3");
+            setInterval(function(){ 
+                    if(p.style.visibility == "hidden"){
+                        p.style.visibility = "visible";
+                    }else{
+                        p.style.visibility = "hidden";
+                    }
+                }, 200);
+        });
+    </script>
+</body>
+</html>

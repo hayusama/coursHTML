@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let first = {
+            nom : "Stone",
+            prenom : "Emma",
+            age : 31,
+            pays : "Etats-unis",
+            sport : ["Foot", "tennis", "basket"],
+            complement_info : function(nom){
+                console.log("Salut à tous " + nom);
+            },
+            affichage_sport : function(){
+               this.sport.forEach(function(elm,index){
+                   console.log("Sport : "+(index+1)+ " - "+elm);
+               });
+            }
+        }
+
+
+        let tableau = [0,1,2,3,4];
+
+        console.log("MANIPULATION OBJET");
+        //MANIPULATION OBJET
+        //NOTATION EQUIVALENTE
+        console.log("Votre nom est :"+ first.nom);
+        console.log("Votre prenom est :"+ first["prenom"]);
+        console.log(typeof(first));
+
+        //AJOUTER DES NOUVEAUX ATTRIBUTS
+        first["info"] = "Celibataire";
+        first.info = "En couple";
+        first.pays = "Angleterre";
+
+        console.log(first.sport[1]);
+
+        console.log(first);
+
+        first.complement_info("ROBERT");
+
+        //NE FONCTIONNE PAS CAR LA METHODE EST DEFINI DANS L'OBJET
+        //console.log(complement_info("ROBERT"));
+
+        //AJOUT DE METHODE EN DEHORS DE L'OBJET
+        console.log("AJOUT D'UNE METHODE");
+        first.message = function() {
+                return "Salut " + first.nom + " " + first.prenom;
+            }
+
+        
+        let message_actrice = first.message();
+        console.log(message_actrice);
+
+        console.log("LANCEMENT METHODE AVEC 'THIS'");
+         first.affichage_sport();   
+
+
+
+        //PARCOURIR UN OBJET LITTERAL
+        /*
+        for(let aux in first){
+            console.log(first[aux]);
+        }*/
+
+
+
+        /////////////////////////
+        console.log("EXEMPLE RETOUR MULTIPLE FONCTION");
+        let retour;
+
+        function info(){
+            return [31,"ok"];
+        }
+
+        retour = info();
+        console.log(retour, retour[1]);
+
+        function info2(){
+            return {
+                age : 31,
+                complement : "Actrice",
+            }
+        }
+
+        retour = info2();
+        console.log(retour, retour["age"], retour.complement);
+
+//////////
+    </script>
+</body>
+</html>

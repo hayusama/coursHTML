@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.paragraphe3{
+            background:red;
+        }
+        p.paragraphe4{
+            background:yellow;
+        }
+        .couleur{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre 1</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">
+            Ceci est ma page de 
+            <a href="#" title="contact">contact</a> 
+            <a id="info" href="#" title="INFO">info</a>
+        </p>
+        <p class="paragraphe3 paragraphe">J'aime <span>INFO</span> les cours</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>
+    <p>test</p>
+
+    <script>
+        //JE SELECTIONNE LA BALISE HTML A
+        let lien = document.querySelector('p.paragraphe2 a#info');
+        console.log(lien);
+        //GETATTRIBUTE RENVOIE LA BALISE DANS L'ATTRIBUT SELECTIONNE
+        console.log(lien.getAttribute('href'));
+        //MODIFICATION DE L'ATTRIBUT
+        lien.setAttribute("href", "https://www.amazon.fr");
+        lien.setAttribute("title", "AMAZON");
+
+        //SELECTIONNE LE PARAGRAPHE
+        let paragraphe = document.querySelector("p.paragraphe3");
+        //RECUPERE LA/LES CLASSES DU PARAGRAPHE SLEECTIONNE
+        console.log(paragraphe.getAttribute('class'));
+        //AJOUTER DES CLASSES A MON ELEMENT
+        paragraphe.setAttribute("class","paragraphe4 paragraphe");
+        //AJOUTER DES CLASSES SANS RE-INITIALISER
+        paragraphe.classList.add('nouvelle');
+        //SUPPRIMER UNE CLASSE CIBLEE
+        paragraphe.classList.remove('paragraphe');
+
+        //UTILISATION DANS FONCTION
+        function test(x){
+            x.setAttribute("class", "couleur");
+        }
+        test(lien);
+
+    </script>
+</body>
+</html>

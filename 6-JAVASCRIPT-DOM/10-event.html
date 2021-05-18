@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="buttonEvent">C'est un bouton, cliquez dessus!</button>
+
+    <script>
+        //EVENEMENT AJOUTER SUR LE BOUTON, FONCTION "ESSAI" car utilisation pour removeEvent
+        document.querySelector('button#buttonEvent').addEventListener('click',function essai(){
+            //Ca permet d'afficher le nom de la balise en minuscule suivi de son contenu
+            alert(this.nodeName.toLowerCase() + ' : ' +  this.innerHTML);
+            //Modifie le style CSS 
+            this.style.backgroundColor = "#FF0000";
+            this.style.color = "white";
+            this.style.fontSize = "20px";
+            //CELA PERMET DE SUPPRIMER L'EVENT SI ON CLIC SUR LE BOUTON , L'EVENT NE SE PRODUIT PLUS
+            document.querySelector('#buttonEvent').removeEventListener('click',essai);
+        });
+
+        /* THIS FAIT REFERENCE A L'OBJET EN COURS ICI WINDOW (OBJET GLOBAL JAVASCRIPT)
+        console.log(this);
+        window.alert('test');
+        alert('test');
+        */
+    </script>
+</body>
+</html>

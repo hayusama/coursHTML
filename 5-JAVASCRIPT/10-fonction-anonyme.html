@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        
         console.log("____FONCTION____");
         function simple(a,b,c){
             console.log(a+b+c);
@@ -36,6 +37,63 @@
 
         
         console.log("En dehors" + chaine);
+
+        
+
+        //EXEMPLE DE CODE EN PRODUCTION
+        //PATTERN MODULE
+       
+       //LANCEMENT DU FONCTION SIMPLE
+       console.log("____FONCTION BASIQUE____");
+       function myModule1(){
+           return 5;
+        }
+
+        var test1 = myModule1();
+        console.log(test1);
+        
+        
+        console.log("____FONCTION ANONYME____");
+        let myModule2 = function(){
+            return 5;
+        };
+
+        var test2 = myModule2();
+        console.log(test2);
+
+        console.log("___ANONYME + IIFE_____");
+        let myModule3 = (function(){
+            return 5;
+        })();
+        console.log(myModule3);
+
+
+        console.log("____MODULE PATTERN VANILLA JS____");
+        let info3 = "jeanne";
+
+        let myModule4 = (function(prenom,age){
+            let x = "Dupond";
+            let y = prenom;
+            function PublicFunction() { console.log("Ceci est une fonction");} // FONCTION PUBLIC
+            function PriveFunction() {console.log('Ma fonction privée');} //FONCTION PRIVEE
+
+            return {
+                //ATTRIBUT : VALEUR(NUMBER,FUNCTION,ARRAY,STRING)
+                nom : x,
+                prenom : y,
+                age : age,
+                ma_fonction : PublicFunction,
+            };
+        })(info3,25);
+
+        console.log(myModule4);
+        console.log("Vous vous appelez : " + myModule4.nom + " et votre prénom : " + myModule4.prenom);
+        console.log(myModule4.nom);
+        myModule4.ma_fonction(); //CA FONCTIONNE CAR PRESENT DANS LE RETURN
+        myModule4.publicFunction(); // NE FONCTIONNE PAS CAR CE NEST PAS UN ATTRIBUT DU RETURN
+        
+
+        
 
         
 

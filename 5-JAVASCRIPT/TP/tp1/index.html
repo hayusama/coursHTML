@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        span#cpt{
+            display:inline-block;
+            background:grey;
+            border-radius: 4px;
+            padding:5px;
+            color:white;
+            font-weight:bold;
+        }
+    </style>
+    <span id="cpt"></span>
+    <script>
+
+        var span = document.getElementById('cpt');
+        span.innerHTML = 0;
+        var i=0;
+        function cpt(){
+            setTimeout(function(){
+                i++; 
+                span.innerHTML = i;
+                cpt();
+            },1000);
+        }
+
+        cpt();
+
+    </script>
+</body>
+</html>

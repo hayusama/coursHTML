@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#bouge{
+            width:15px;
+            height:15px;
+            background-color: blueviolet;
+            position: absolute;
+            left:100px;
+            top:50px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <input id="field" type="text">
+    </p>
+
+    <table border=1>
+        <tr>
+            <td>KEYDOWN</td>
+            <td id="keydown"></td>
+        </tr>
+        <tr>
+            <td>KEYPRESS</td>
+            <td id="keypress"></td>
+        </tr>
+        <tr>
+            <td>KEYUP</td>
+            <td id="keyup"></td>
+        </tr>
+    </table>
+    <!--PIXEL-->
+    <div id="bouge"></div>
+
+    <script>
+        //TOUCHE HAUT 38
+        //TOUCHE BAS 40
+        //37 gauche
+        //39 droite
+        let field = document.querySelector("input#field");
+        let down = document.querySelector("td#keydown");
+        let press = document.querySelector("td#keypress");
+        let up = document.querySelector("td#keyup");
+        //PIXEL
+        let pixel = document.querySelector("div#bouge");
+
+        console.log(document);
+        //APPUIE SUR LA TOUCHE | MAJ DEFAUT
+        document.addEventListener('keydown',function(e){
+            down.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
+            //switch en fonction des touches directionnelles le code correspond à une touche
+            switch(e.keyCode){
+                case 38:
+                    console.log("TOP");
+                    pixel.style.top = (pixel.offsetTop-1) + "px";
+                    break;
+                case 39:
+                    console.log("RIGHT");
+                    pixel.style.left = (pixel.offsetLeft+1) + "px";
+                    break;
+                case 37:
+                    console.log("LEFT");
+                    pixel.style.left = (pixel.offsetLeft-1) + "px";
+                    break;
+                case 40:
+                    console.log("BOTTOM");
+                    pixel.style.top = (pixel.offsetTop+1) + "px";
+                    break;
+            }
+        });
+
+        //COMBINAISON DE TOUCHE | Que ce qui écrit du caractère
+        document.addEventListener('keypress',function(e){
+            press.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
+        });
+
+        //RELACHE LA TOUCHE | MAJ DEFAUT
+        document.addEventListener('keyup',function(e){
+            up.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
+        });
+
+    </script>
+</body>
+</html>

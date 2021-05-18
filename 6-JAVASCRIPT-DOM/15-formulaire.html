@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container">
+  <form action="" id="form_connexion" name="form_connexion" method="GET">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="text" class="form-control" placeholder="Enter email" id="email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+  </div>
+  <div class="form-group form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="remember" id="remember"> Remember me
+    </label>
+  </div>
+  <div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio">Option 1
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio">Option 2
+  </label>
+</div>
+<div class="form-check-inline disabled">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio">Option 3
+  </label>
+</div>
+  <div class="form-group">
+  <label for="sel1">Select list:</label>
+  <select class="form-control" id="sel1" name="sel1">
+    <option value=0>Choisir</option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+  </select>
+</div>
+  <button type="submit" class="btn btn-primary" name="connexion" id="connexion">Submit</button>
+</form>
+</div>
+<script>
+    document.querySelector('form#form_connexion').addEventListener('submit',function(e){
+        //DEFINITION REGEX | Expression régulière
+        let regex_nombre = /^[a-zA-Z]{2,}$/;
+        //ANNULER LA VALIDATION
+        e.preventDefault();
+        //ACCEDER A L'ELEMENT
+        console.log(this.email.value);
+        console.log(document.forms["form_connexion"].elements["email"].value);
+        //TEST REGEX (TEST EST UNE METHODE PAR DEFAUT POUR LES VARIABLES DE TYPE REGEX)
+        if(regex_nombre.test(this.email.value)){
+            console.log("Plus de 2 caractères");
+        }else{
+            console.log("Moins de 2 caractères a-z ou A-Z");
+        }
+        //CASE A COCHER
+        if(this.remember.checked){console.log("case cochée")}
+        //MEME CHOSE MAIS BOUTON RADIO
+        this.optradio.forEach(function(elm){
+            if(elm.checked){
+                console.log("Le bouton radio est coché");
+            }
+        });
+
+        //SELECT INDEX ET VALEUR
+        console.log(this.sel1.selectedIndex);
+        console.log(this.sel1.value);
+        //VALIDER FORMULAIRE
+        this.submit();
+    });
+</script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

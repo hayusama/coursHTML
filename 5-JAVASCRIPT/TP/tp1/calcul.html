@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //FONCTION PERMETTANT DE FAIRE MON CALCUL RENVOYANT LE CALCUL
+        function calcul(){
+
+            var info = [], result=0, aux=0;
+            //CHOIX DES VALEURS (on ajoute parsefloat pour etre sur de ne pas avoir de chaine (string))
+            do{
+                var valeur = prompt('Choisir une valeur :');     
+                //IS NOT A NUMBER
+                if(!isNaN(valeur)) {
+                    info.push(parseFloat(valeur));
+                    aux++;
+                }else {
+                    alert('ce n\'est pas un nombre');
+                }       
+            }while(aux<5);
+            //On isole l'opérande pour ne pas la transformer en float
+            info.push(prompt('Choisir une opérande :'));   
+
+            //On teste l'opérande
+            switch(info[5]){
+                case "+":
+                    //On applique la methode forEach sur l'objet de type tableau en passant une fonction permettant d'obtenir le resultat de l'opération
+                    info.forEach(function(elm, index){
+                        if(index != 5)
+                            result += elm;
+                    });
+                    break;
+                case "-":
+                    info.forEach(function(elm, index){
+                        if(index == 0)
+                            result = elm;
+                        else if(index != 5)
+                            result -= elm;
+                    });
+                    break;
+                case "*":
+                    info.forEach(function(elm, index){
+                        if( index == 0)
+                            result = elm;
+                        else if(index != 5) 
+                            result *= elm;
+                    });
+                    break;
+                case "/":
+                    info.forEach(function(elm, index){
+                        if( index == 0)
+                            result = elm;
+                        else if(index != 5) 
+                            result /= elm;
+                    });
+                    break;
+                    
+            }
+            return result;
+        }
+        
+        
+        var result1 = calcul();
+        var result2 = calcul();
+
+        alert("Le plus grand résultat entre " + result1 + " et " + result2 + " est : " + Math.max(result1,result2));
+
+
+    </script>
+</body>
+</html>

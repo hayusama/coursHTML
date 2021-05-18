@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre 1</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">
+            Ceci est ma page de <a href="#" title="contact">contact</a>
+        </p>
+        <p class="paragraphe3 paragraphe">J'aime <span>INFO</span> les cours</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>
+
+    <script>
+        //SELECTIONNE LE PARAGRAPHE 2
+       let elm = document.querySelector("p.paragraphe2");
+       console.log(elm, elm.nextSibling, elm.previousSibling);
+       console.log(elm,elm.nextElementSibling,elm.previousElementSibling);
+
+       let liste = document.querySelector("ul#liste");
+       //
+       console.log(liste,liste.firstElementChild.nextElementSibling.nextElementSibling.innerHTML);
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ES5
+        function point(x,y,estMarque){
+            x = x || 0; //VERIFICATION X et Y identique // NOTATION DIFFERENTE
+            y = (typeof(y) === "undefined")? -1 : y;
+            estMarque = (typeof(estMarque) === 'undefined')? true : estMarque;
+            console.log(x,y,estMarque);
+        }
+
+        point(0,0); // 0 0 true
+        point(0,0,false); // 0 0 false
+        point(1); // 1,-1,true
+        point(); //0,-1,true
+
+
+        //ES6
+        function point2(x = 0, y = -1, estMarque = true){
+            console.log(x,y,estMarque);
+        }
+
+        point2(0,0); // 0 0 true
+        point2(0,0,false); // 0 0 false
+        point2(1); //1,-1,true
+        point2(); //0,-1,true
+
+    </script>
+</body>
+</html>

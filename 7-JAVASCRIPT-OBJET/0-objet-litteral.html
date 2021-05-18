@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+</head>
+<body>
+
+    <div class="container">
+        <form action="" method="GET" id="form_connexion" name="form_connexion">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="text" class="form-control" placeholder="Votre email" id="email" name="email" >
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" placeholder="Votre mot de passe" name="pwd">
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="cookie" id="cookie"> J'accepte les cookies
+          </label>
+        </div>
+        <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optradio" value=1>Oui
+        </label>
+      </div>
+      <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optradio" value=2>Non
+        </label>
+      </div>
+      <div class="form-check-inline disabled">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optradio" value=3>Aucun avis
+        </label>
+      </div>
+        <div class="form-group">
+        <label for="sel1">Selectionnez une valeur:</label>
+        <select class="form-control" id="sel1" name="sel1">
+        <option selected>-Choisir une valeur-</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+        </select>
+      </div>
+        <button type="submit" class="btn btn-primary" name="connexion" id="connexion">Submit</button>
+      </form>
+      <button id="creation_p" class="btn btn-info mt-3">Générer un paragraphe</button>
+      </div>
+
+
+
+
+
+    
+
+    <script>
+        let litteral = {
+            id:1,
+            prenom:"Jean",
+            nom:"Dupond",
+            age:50,
+            boolean:true,
+            tableau:["a","b","c","d"],
+            test : function(){console.log("fonction");},
+            //THIS FAIT REFERENCE A L'OBJET COURANT ICI C'est litteral
+            concatenation : function(){alert(this.nom + " " + this.prenom + " " + this.tableau[0] + " " + this.tableau[1])},
+            clicBTN : function(elm_btn){
+                let that = this;
+                elm_btn.addEventListener("click",function(e){
+                    //console.log(elm_btn);
+                    let paragraphe = document.createElement("p");
+                    document.querySelector("body").appendChild(paragraphe);
+                   //EQUIVALENT :  document.body.appendChild(paragraphe);
+                   let p_texte = document.createTextNode(that.prenom + " " + that.nom);
+                   paragraphe.appendChild(p_texte);
+                   //EQUIVALENT : paragraphe.innerHTML = that.prenom + " " + that.nom;
+                   //console.log("that = ", that, "this =",this);
+                });
+            },
+            validForm : function(elm_form){
+                //CI-DESSOUS COPIE DU CODE DE CORRECTION DU FORMULAIRE (16-correction-form - partie DOM)
+                elm_form.addEventListener('submit', function(e) {
+                    //REGEX PATTERN MAIL (TROUVABLE SUR INTERNET)
+                    let regmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    //REGEX POUR LA PASSWORD
+                    let regnombre = /^[a-zA-Z1-9]{6,8}$/;
+                    //MESSAGE ERREUR ET OPT CASE CHECK
+                    let erreur = "", opt = false;
+                    //ANNULE LA VALIDATION
+                    
+                    //EMAIL VIDE ET NE RESPECTANT PAS LA REGEX
+                    if(!(this.elements["email"].value && regmail.test(this.elements["email"].value)))
+                        erreur += "- Email non valide ou vide<br>";
+                    //TEST MOT DE PASSE - VIDE + REGEX
+                    if(!(this.elements["pwd"].value != "" && regnombre.test(this.elements["pwd"].value)))
+                        erreur += "- Le mot de passe est vide ou non compris entre 6/8 caractères<br>";
+                    //L'inverse de case coché     
+                    if(!this.elements['cookie'].checked)
+                        erreur += "- Les cookies ne sont pas acceptés<br>";
+                    //PERMET D'ITERER LE TABLEAU D'OPTION RADIO ET DE VERIFIER SI CASE COCHEE    
+                    this.elements["optradio"].forEach( elm => {if(elm.checked) opt = true;});
+                    //TERNAIRE ET CELA PERMET D'AFFECTER A ERREUR UNE CHAINE SI OPT EST VIDE
+                    erreur += (!opt)?"- Aucun choix selectionné<br>":"";
+                    //PERMET DE SAVOIR L'INDEX DEFINI DANS LA LISTE DEROULANTE(SELECT)
+                    if(this.elements['sel1'].selectedIndex == 0)
+                        erreur += "- Aucun valeur selectionnée<br>";
+                    //SI ERREUR EXISTE
+                    if(erreur) {
+                        //CA PERMET DE NE PAS LANCER LE PROCESS DE VALIDATION DU FORMULAIRE
+                        e.preventDefault();
+                        //VERIFIE SI ELEMENT EXISTE
+                        if(document.querySelector("div.alert.alert-danger.mt-2")){
+                        //SI EXISTE AFFECTATION
+                            document.querySelector("div.alert.alert-danger.mt-2").innerHTML = erreur;
+                        } else {
+                        //SINON ON CREE TOTALEMENT L'ELEMENT ET ON LE STYLISE
+                            let errorDiv = document.createElement('div');
+                            errorDiv.className = "alert alert-danger mt-2";
+                            errorDiv.id = "erreurContent";
+                            errorDiv.style.fontWeight = "bold";
+                            errorDiv.innerHTML = erreur;
+                            this.appendChild(errorDiv);
+                        }
+                    
+                    } else {
+                    //SI OK ON LANCE LA VALIDATION HTML DU FORMULAIRE
+                        this.submit();
+                    }
+                })
+            },
+        };
+
+        //AFFICHAGE EN CONSOLE DE L'ATTRIBUT ID DE l'objet litteral
+        console.log(litteral.id);
+        //APPEL DE LA METHODE TEST (CONSOLE LOG SIMPLE)
+        litteral.test();
+        //APPEL METHODE QUI PERMET DE CONCATENER - NOM + PRENOM 2 PREMIERS ELEMENTS DU TABLEAU
+        litteral.concatenation();
+        //APPEL METHODE QUI PERMET D'AJOUTER DU CONTENU EN CLIQUANT SUR UN BOUTON
+        litteral.clicBTN(document.querySelector("button#creation_p"));
+        //APPEL METHODE PERMETTANT DE VERIFIER ET VALIDER LE FORMULAIRE (VALIDER SI AUCUNE ERREUR)
+        litteral.validForm(document.getElementById("form_connexion"));
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+</body>
+</html>
+

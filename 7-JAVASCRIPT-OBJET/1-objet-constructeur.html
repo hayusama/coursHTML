@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Voiture(marque,annee,km,boite){
+            this.marque = marque;
+            this.annee = annee;
+            this.km = km;
+            if(boite!=""){
+                this.boite = boite;
+            }else {
+               
+            }
+            this.controle = "Controle technique valide pour la vente";
+            this.pneu = 4;
+        }
+
+        var opel = new Voiture("Opel",2009,50000,"Auto");
+        var twingo = new Voiture("Twingo",2015,35000,"Manuelle");
+        var peugeot = new Voiture("peugeot", 2010,"","");
+
+       // console.log("Marque voiture 1 : "+ opel.marque + "Marque voiture 2" + twingo.marque);
+
+        var tableau = new Array(opel,twingo);
+
+        console.log(tableau, tableau[0].annee, tableau[1].annee);
+
+        console.log(peugeot);
+
+
+    </script>
+</body>
+</html>

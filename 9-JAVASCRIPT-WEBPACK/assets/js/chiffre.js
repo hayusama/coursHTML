@@ -1,0 +1,1 @@
+export let nombre=4,other=2;

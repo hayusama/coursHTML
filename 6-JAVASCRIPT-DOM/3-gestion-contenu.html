@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre 1</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">
+            Ceci est ma page de <a href="#" title="contact">contact</a> 
+            <a id="info" href="#" title="INFO">info</a>
+        </p>
+        <p class="paragraphe3 paragraphe">J'aime <span>INFO</span> les cours</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>
+
+    <script>
+        //CIBLE L'ELEMENT PARAGRAPHE2
+        let mabalise = document.querySelector("p.paragraphe2");
+        //AFFICHE TOUT L'ELEMENT
+        console.log(mabalise);
+        //AFFICHE EN CONSOLE LE CONTENU DE MON ELEMENT
+        console.log(mabalise.innerHTML);
+        //paragraphe.innerHTML = "BONJOUR";
+        //RAJOUTER DU CONTENU EN PLUS DANS MA BALISE
+        mabalise.innerHTML = mabalise.innerHTML + "<br>CONTENU SUP";
+        //EQUIVALENT
+        mabalise.innerHTML += "<strong>contenu supplementaire</strong>";
+        //PERMET D'AJOUTER UN LIEN A LA FIN DE MON PARAGRAPHE
+        let x = "SALUT";
+        let mabalise2 = document.querySelector("p.paragraphe3");
+        mabalise2.innerHTML = mabalise2.innerHTML + " <a href=\"https:www.jeuxvideo.com\" title=\"\">"+ x +"</a>";
+        
+
+    </script>
+</body>
+</html>

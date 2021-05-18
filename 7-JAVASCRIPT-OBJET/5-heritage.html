@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Personnage(hp,mp,lvl,force){
+            this.hp = hp;
+            this.mp = mp;
+            this.actif = true;
+            this.lvl = lvl;
+            this.force = force
+            console.log("personnage");
+        }
+
+        Personnage.prototype.bloquer = function(aux) { this.actif = aux; console.log("Joueur : "+aux)}
+
+
+
+        //DANS L'UTILISATION [Magicien : 60HP et une force de 10;Assassin : 100HP et une force de 70]
+        Personnage.prototype.combat = function(perso) {
+            var restevie = perso.hp - this.force;
+            if(restevie>0) {
+                console.log("Le personnage est encore vie");
+                perso.hp = restevie;
+            } else {
+                console.log("Le personnage est mort");
+                perso.hp = 0;
+                perso.actif = false;
+            }
+            return perso;
+        }
+
+
+
+        function Magicien(hp,mp,lvl,force,sort){
+            //CALL ET APPLY REDIRIGE LA REFERENCE DE OBJET THIS VERS UN AUTRE
+            //ON UTILISE LE CONSTRUCTEUR DE PERSONNAGE
+            Personnage.call(this, hp,mp,lvl,force);
+            //Personnage.apply(this, [hp,mp,lvl]);
+            //SURCHARGE
+            this.sort = sort;
+            console.log("magicien");
+        } 
+        Magicien.prototype = Object.create(Personnage.prototype);
+        //NE SEMBLE PAS UTILE MAIS L'EST BEAUCOUP PLUS AVEC ES6
+        Magicien.prototype.constructor = Magicien;
+        Magicien.prototype.lancementSort = function(){console.log('Feuuu!')}
+
+        var mage = new Magicien(60,100,50,10,"Feu");
+        mage.lancementSort();
+        mage.bloquer(true);
+        mage.bloquer(false);
+        console.log(mage.hp,mage.sort);
+        console.log(mage.constructor);
+                    
+
+
+        /*
+        *Créez une nouvelle classe enfant de Personnage
+        Cette classe se nommera "Assassin"
+        Reprendra le même constructeur que Personnage
+        Il y a aura un autre attribut en plus "poison"
+        Poison sera une chaine de caractère : exemple (superficiel, mortel, bloquant,....)
+        Vous devez créez une nouvelle méthode dans l'objet
+        Assassin "utilisationPoison"
+        *
+        * 
+        */
+
+        function Assassin(hp,mp,lvl,force,poison){
+            //CALL ET APPLY REDIRIGE LA REFERENCE DE OBJET THIS VERS UN AUTRE
+            //ON UTILISE LE CONSTRUCTEUR DE PERSONNAGE
+            Personnage.call(this, hp,mp,lvl,force);
+            //Personnage.apply(this, [hp,mp,lvl]);
+            //SURCHARGE
+            this.poison = poison;
+            console.log("Assassin");
+        } 
+
+        Assassin.prototype = Object.create(Personnage.prototype);
+        //NE SEMBLE PAS UTILE MAIS L'EST BEAUCOUP PLUS AVEC ES6
+        Assassin.prototype.constructor = Assassin;
+        //AJOUT DE METHODE SUR ASSASSIN
+        Assassin.prototype.utilisationPoison = function(){console.log('J\'ai touché')}
+        //INITIALISATION DE ASSASSIN EN UTILISANT L'OBJET DEDIE
+        var assassin = new Assassin(100,100,50,70,"Bloquant");
+        //JE LANCE LA METHODE UTILISATIONPOISON
+        assassin.utilisationPoison();
+
+
+
+        /***
+         * 
+         * Ajoutez un attribut "force" dans personnage.
+            Instanciez un magicien et un assassin.
+            Definissez une methode combat qui permet de faire combattre deux objet personnage.
+            Si perso n'a plus de vie, affichez à l'ecran "Personnage mort"
+         */
+        mage = assassin.combat(mage);
+        console.log(mage);
+
+
+
+
+        //CETTE FONCTION PERMET D'APPLIQUER UNE METHODE D'UNE CLASSE DISTANTE(NATIVE OU CUSTOM) SUR UN AUTRE OBJET NE POSSEDANT CETTE METHODE
+        //CELA EST TRES UTILE CAR CA EVITE DE PERDRE DU TEMPS A ECRIRE UNE LOGIQUE SPECIFIQUE EXISTANTE (EVITE LES DOUBLONS)
+        function list() {
+            console.log(arguments);
+            return Array.prototype.slice.call(arguments,1);
+            }
+
+        const listeElementsValeurs = list(1, 2, 3);
+        console.log(listeElementsValeurs);
+
+
+            //ARGUMENTS EST UN MOT CLE REVERSE DANS JS, IL PERMET DE RECUPERER LES ARGUMENTS SOUS FORME DE TABLEAU
+            //UN TABLEAU EST UN OBJET JS DE TYPE ARRAY
+            //POSSIBILIT2 D'UTILISER PAR EXEMPLE FOREACH
+            function chat(couleur,age,nom){
+                console.log(couleur,age,nom);
+                console.log(arguments);
+            }
+            chat("blanc",14,"minouche","tttt","tttttt");
+    </script>
+</body>
+</html>

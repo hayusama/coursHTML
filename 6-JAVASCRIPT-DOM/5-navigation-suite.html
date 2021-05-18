@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre 1</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">
+            Ceci est ma page de <a href="#" title="contact">contact</a>
+        </p>
+        <p class="paragraphe3 paragraphe">J'aime <span>INFO</span> les cours</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>
+
+    <script>
+       let elm = document.querySelector("p.paragraphe2");
+       console.log(elm);
+       //FIRSTCHILD = NOEUD DE TYPE TEXTE; NODEVALUE RENVOIE SON CONTENU TEXTUEL
+       //nodeValue = data
+       console.log(elm.firstChild.nodeValue);
+       //elm.lastElementChild recupere le "a";le first child recupere 
+       //le premier enfant de la balise A = noeud de type texte et data recupère le contenu
+       //data = nodeValue
+       console.log(elm.lastElementChild.firstChild.data);
+
+       console.log(elm.childNodes);
+       
+       for(var i=0; i<elm.childNodes.length; i++){
+           if(elm.childNodes[i].nodeType === 1){
+                console.log(elm.childNodes[i].innerHTML);
+                console.log(elm.childNodes[i]);
+           }else{
+                console.log(elm.childNodes[i].nodeValue);
+           }
+       }
+
+    </script>
+</body>
+</html>

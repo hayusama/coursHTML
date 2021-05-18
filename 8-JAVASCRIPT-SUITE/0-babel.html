@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body><div id="output"></div>
+<!-- Load Babel -->
+<!-- UTILISE POUR INSERER DE L'ES6 SUR UN VIEUX PROGRAMME OU TESTER UNE FONCTIONNALITE MONOPOGE
+  ICI DEUX VERSION STANDALONE SI UNE MARCHE PAS, TESTEZ L'AUTRE!-->
+ <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+<!-- Your custom script here -->
+<script type="text/babel">
+const getMessage = () => "Hello World";
+document.getElementById('output').innerHTML = getMessage();
+</script>
+
+
+ </body>
+</html>

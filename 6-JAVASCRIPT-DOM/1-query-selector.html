@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Mon titre 1</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="#" title="contact">contact</a></p>
+        <p class="paragraphe3 paragraphe">J'aime <span>INFO</span> les cours</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>
+    <p>test</p>
+
+
+    <script>
+        //UN SEUL ELEMENT
+          let single = document.querySelector("p.paragraphe3 span");
+          console.log(single.innerHTML); 
+          //TABLEAU D'ELEMENT
+          let multiple = document.querySelectorAll("ul#liste li");
+          console.log(multiple);
+          console.log(multiple.length);
+          for(i=0;i<multiple.length;i++){ //pour i=0 à i<4 avec un pas de 1
+            console.log("dedans :" +i);
+              console.log("Element " + i + multiple[i].innerHTML);
+          }
+          console.log("en dehors :" +i);
+          console.log(multiple[3].innerHTML);
+          console.log(multiple[0].innerHTML);
+    </script>
+</body>
+</html>

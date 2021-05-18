@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+       <p class="paragraphe1">Bonjour à tous</p>
+        <p class="paragraphe2">Ceci est ma page de <a href="#" title="contact">contact</a> </p>
+        <p class="paragraphe3">J'aime</p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li>L'argent</li>
+            <li>Les voitures</li>
+            <li>La programmation</li>
+        </ul>
+    </div>   
+    <img src="fourmie.jpg">
+    <br>
+    <button>Insere li</button>
+    <button>Clignote</button>
+
+
+<script>
+    //AJOUT EVENT CLICK SUR BOUTON
+    document.querySelectorAll("button")[0].addEventListener("click",function(){
+        //CREATION LI ET TEXT ASSOCIE
+        var li = document.createElement("li");
+        var liTexte = document.createTextNode("Ajout de ma ligne");
+        //ASSOCIATION DOM
+        li.appendChild(liTexte);
+        document.querySelector("ul#liste").appendChild(li);
+        //CHANGEMENT COULEUR PARAGRAPHE
+        document.querySelector("p.paragraphe1").style.color = "#FF0000";
+    });
+
+    //mouseover quand souris dessus event
+    document.querySelector("img").addEventListener("mouseover",function(){
+        this.src="chevre.jpg"
+    });
+    //mouse out quand souris en dehors event
+    document.querySelector("img").addEventListener("mouseout",function(){
+        this.src="fourmie.jpg"
+    });
+
+    //VERSION OPTIMISEE
+    /*
+    document.querySelectorAll("button")[1].addEventListener("click",() => {
+        var that = document.querySelector("p.paragraphe3");
+        setInterval(() => 
+        that.style.visibility = (that.style.visibility == "hidden")?"visible":"hidden"
+            ,500);
+    });
+    */
+
+    //VERSION SIMPLE equivalent du dessus
+    document.querySelectorAll("button")[1].addEventListener("click",function () {
+        var that = document.querySelector("p.paragraphe3");
+        setInterval(function(){
+            if(that.style.visibility == "hidden")
+                that.style.visibility = "visible";
+            else
+                that.style.visibility = "hidden";
+        },500);
+    });
+
+</script>
+
+
+</body>
+</html>
